@@ -1,0 +1,2168 @@
+{
+  "schemaVersion": 1,
+  "fixtures": [
+    {
+      "operationId": "getMembers",
+      "method": "GET",
+      "path": "/1/members",
+      "serverId": "documentServer1HttpsApiHappilyAiProd",
+      "authentication": [
+        {
+          "schemes": [
+            "ApiKeyAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "email",
+          "inputName": "email",
+          "sample": "user@example.test",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "team_id",
+          "inputName": "team_id",
+          "sample": "value/id",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "talent_type",
+          "inputName": "talent_type",
+          "sample": "value/id",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "company_id",
+          "inputName": "company_id",
+          "sample": "value/id",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "page",
+          "inputName": "page",
+          "sample": 1,
+          "default": 1,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "limit",
+          "inputName": "limit",
+          "sample": 50,
+          "default": 50,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "member",
+            "type": "object"
+          },
+          {
+            "name": "members",
+            "type": "array"
+          },
+          {
+            "name": "message",
+            "type": "string"
+          },
+          {
+            "name": "pagination",
+            "type": "object"
+          },
+          {
+            "name": "statusCode",
+            "type": "integer"
+          }
+        ],
+        "simplifiedFields": [
+          "member",
+          "members",
+          "message",
+          "pagination",
+          "statusCode"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Missing or invalid request parameters."
+        }
+      ],
+      "requestPlan": {
+        "operationId": "getMembers",
+        "method": "GET",
+        "path": "/1/members",
+        "serverId": "documentServer1HttpsApiHappilyAiProd",
+        "request": {
+          "method": "GET",
+          "url": "=/1/members",
+          "query": [
+            {
+              "name": "email",
+              "source": "additionalFields"
+            },
+            {
+              "name": "team_id",
+              "source": "additionalFields"
+            },
+            {
+              "name": "talent_type",
+              "source": "additionalFields"
+            },
+            {
+              "name": "company_id",
+              "source": "additionalFields"
+            },
+            {
+              "name": "page",
+              "source": "additionalFields"
+            },
+            {
+              "name": "limit",
+              "source": "additionalFields"
+            }
+          ],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "ApiKeyAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "member",
+              "type": "object"
+            },
+            {
+              "name": "members",
+              "type": "array"
+            },
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "pagination",
+              "type": "object"
+            },
+            {
+              "name": "statusCode",
+              "type": "integer"
+            }
+          ],
+          "simplifiedFields": [
+            "member",
+            "members",
+            "message",
+            "pagination",
+            "statusCode"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Missing or invalid request parameters."
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "getUserProfile",
+      "method": "GET",
+      "path": "/api/v1/users/{email}/profile",
+      "serverId": "documentServer1HttpsApiHappilyAiProd",
+      "authentication": [
+        {
+          "schemes": [
+            "ApiKeyAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "email",
+          "inputName": "email",
+          "sample": "jordan@acme.com",
+          "example": "jordan@acme.com",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "include_personal_context",
+          "inputName": "include_personal_context",
+          "sample": true,
+          "default": true,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "context_limit",
+          "inputName": "context_limit",
+          "sample": 10,
+          "default": 10,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "engagement_health_score",
+            "type": "number"
+          },
+          {
+            "name": "engagement_health_status",
+            "type": "string"
+          },
+          {
+            "name": "impact_rating",
+            "type": "number"
+          },
+          {
+            "name": "metadata",
+            "type": "object"
+          },
+          {
+            "name": "personal_context",
+            "type": "object"
+          },
+          {
+            "name": "user",
+            "type": "object"
+          }
+        ],
+        "simplifiedFields": [
+          "engagement_health_score",
+          "engagement_health_status",
+          "impact_rating",
+          "metadata",
+          "personal_context",
+          "user"
+        ]
+      },
+      "errors": [
+        {
+          "status": "403",
+          "title": "Authenticated, but not permitted to access this resource."
+        },
+        {
+          "status": "404",
+          "title": "The requested resource was not found."
+        }
+      ],
+      "requestPlan": {
+        "operationId": "getUserProfile",
+        "method": "GET",
+        "path": "/api/v1/users/{email}/profile",
+        "serverId": "documentServer1HttpsApiHappilyAiProd",
+        "request": {
+          "method": "GET",
+          "url": "=/api/v1/users/{{$parameter[\"email\"]}}/profile",
+          "query": [
+            {
+              "name": "include_personal_context",
+              "source": "additionalFields"
+            },
+            {
+              "name": "context_limit",
+              "source": "additionalFields"
+            }
+          ],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "ApiKeyAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "engagement_health_score",
+              "type": "number"
+            },
+            {
+              "name": "engagement_health_status",
+              "type": "string"
+            },
+            {
+              "name": "impact_rating",
+              "type": "number"
+            },
+            {
+              "name": "metadata",
+              "type": "object"
+            },
+            {
+              "name": "personal_context",
+              "type": "object"
+            },
+            {
+              "name": "user",
+              "type": "object"
+            }
+          ],
+          "simplifiedFields": [
+            "engagement_health_score",
+            "engagement_health_status",
+            "impact_rating",
+            "metadata",
+            "personal_context",
+            "user"
+          ]
+        },
+        "errors": [
+          {
+            "status": "403",
+            "title": "Authenticated, but not permitted to access this resource."
+          },
+          {
+            "status": "404",
+            "title": "The requested resource was not found."
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "importMembers",
+      "method": "POST",
+      "path": "/api/v1/members",
+      "serverId": "documentServer1HttpsApiHappilyAiProd",
+      "authentication": [
+        {
+          "schemes": [
+            "ApiKeyAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "members",
+            "inputName": "members",
+            "sample": [
+              {
+                "email": "user@example.test",
+                "first_name": "value/id",
+                "last_name": "value/id"
+              }
+            ],
+            "type": "array",
+            "required": true
+          },
+          {
+            "name": "options",
+            "inputName": "options",
+            "sample": {},
+            "type": "object",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "details",
+            "type": "object"
+          },
+          {
+            "name": "import_id",
+            "type": "string"
+          },
+          {
+            "name": "rate_limit",
+            "type": "object"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "summary",
+            "type": "object"
+          }
+        ],
+        "simplifiedFields": [
+          "details",
+          "import_id",
+          "rate_limit",
+          "status",
+          "summary"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Validation failed — one or more members are invalid."
+        },
+        {
+          "status": "429",
+          "title": "Rate limit exceeded for this API key."
+        }
+      ],
+      "requestPlan": {
+        "operationId": "importMembers",
+        "method": "POST",
+        "path": "/api/v1/members",
+        "serverId": "documentServer1HttpsApiHappilyAiProd",
+        "request": {
+          "method": "POST",
+          "url": "=/api/v1/members",
+          "query": [],
+          "body": [
+            {
+              "name": "members",
+              "source": "parameter"
+            },
+            {
+              "name": "options",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "ApiKeyAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "details",
+              "type": "object"
+            },
+            {
+              "name": "import_id",
+              "type": "string"
+            },
+            {
+              "name": "rate_limit",
+              "type": "object"
+            },
+            {
+              "name": "status",
+              "type": "string"
+            },
+            {
+              "name": "summary",
+              "type": "object"
+            }
+          ],
+          "simplifiedFields": [
+            "details",
+            "import_id",
+            "rate_limit",
+            "status",
+            "summary"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Validation failed — one or more members are invalid."
+          },
+          {
+            "status": "429",
+            "title": "Rate limit exceeded for this API key."
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter members",
+          "advanced parameter options"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "createPerformanceBoosts",
+      "method": "POST",
+      "path": "/api/v1/performance-boosts",
+      "serverId": "documentServer1HttpsApiHappilyAiProd",
+      "authentication": [
+        {
+          "schemes": [
+            "ApiKeyAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "raw",
+        "fields": [
+          {
+            "name": "bodyJson",
+            "inputName": "bodyJson",
+            "sample": {
+              "schemaAlternative": "alternative1",
+              "value": {
+                "assessment_data": {
+                  "culture_contribution": {
+                    "rating": "significantly",
+                    "supporting_examples": "value/id"
+                  },
+                  "goal_performance": {
+                    "rating": "exceeded_goals",
+                    "supporting_examples": "value/id"
+                  }
+                },
+                "employee_email": "user@example.test",
+                "review_date": "value/id",
+                "reviewer_email": "user@example.test"
+              }
+            },
+            "type": "alternative",
+            "required": true
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "body",
+            "type": "array"
+          },
+          {
+            "name": "statusCode",
+            "type": "integer"
+          }
+        ],
+        "simplifiedFields": [
+          "body",
+          "statusCode"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Missing or invalid request parameters."
+        },
+        {
+          "status": "500",
+          "title": "Unexpected server error."
+        }
+      ],
+      "requestPlan": {
+        "operationId": "createPerformanceBoosts",
+        "method": "POST",
+        "path": "/api/v1/performance-boosts",
+        "serverId": "documentServer1HttpsApiHappilyAiProd",
+        "request": {
+          "method": "POST",
+          "url": "=/api/v1/performance-boosts",
+          "query": [],
+          "body": [
+            {
+              "name": "bodyJson",
+              "source": "parameter"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "ApiKeyAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "body",
+              "type": "array"
+            },
+            {
+              "name": "statusCode",
+              "type": "integer"
+            }
+          ],
+          "simplifiedFields": [
+            "body",
+            "statusCode"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Missing or invalid request parameters."
+          },
+          {
+            "status": "500",
+            "title": "Unexpected server error."
+          }
+        ],
+        "unsupportedSemantics": [
+          "raw or blocked request body",
+          "advanced parameter bodyJson"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "getPerformanceFeedbacks",
+      "method": "GET",
+      "path": "/1/performance_feedback",
+      "serverId": "documentServer1HttpsApiHappilyAiProd",
+      "authentication": [
+        {
+          "schemes": [
+            "ApiKeyAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "email",
+          "inputName": "email",
+          "sample": "user@example.test",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "reviewer_email",
+          "inputName": "reviewer_email",
+          "sample": "user@example.test",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "date_from",
+          "inputName": "date_from",
+          "sample": "2026-01-01",
+          "example": "2026-01-01",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "date_to",
+          "inputName": "date_to",
+          "sample": "2026-06-30",
+          "example": "2026-06-30",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "page",
+          "inputName": "page",
+          "sample": 1,
+          "default": 1,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "limit",
+          "inputName": "limit",
+          "sample": 50,
+          "default": 50,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "feedback",
+            "type": "array"
+          },
+          {
+            "name": "message",
+            "type": "string"
+          },
+          {
+            "name": "pagination",
+            "type": "object"
+          },
+          {
+            "name": "statusCode",
+            "type": "integer"
+          }
+        ],
+        "simplifiedFields": [
+          "feedback",
+          "message",
+          "pagination",
+          "statusCode"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Missing or invalid request parameters."
+        }
+      ],
+      "requestPlan": {
+        "operationId": "getPerformanceFeedbacks",
+        "method": "GET",
+        "path": "/1/performance_feedback",
+        "serverId": "documentServer1HttpsApiHappilyAiProd",
+        "request": {
+          "method": "GET",
+          "url": "=/1/performance_feedback",
+          "query": [
+            {
+              "name": "email",
+              "source": "additionalFields"
+            },
+            {
+              "name": "reviewer_email",
+              "source": "additionalFields"
+            },
+            {
+              "name": "date_from",
+              "source": "additionalFields"
+            },
+            {
+              "name": "date_to",
+              "source": "additionalFields"
+            },
+            {
+              "name": "page",
+              "source": "additionalFields"
+            },
+            {
+              "name": "limit",
+              "source": "additionalFields"
+            }
+          ],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "ApiKeyAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "feedback",
+              "type": "array"
+            },
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "pagination",
+              "type": "object"
+            },
+            {
+              "name": "statusCode",
+              "type": "integer"
+            }
+          ],
+          "simplifiedFields": [
+            "feedback",
+            "message",
+            "pagination",
+            "statusCode"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Missing or invalid request parameters."
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "savePerformancePreset",
+      "method": "POST",
+      "path": "/api/v1/performance-preset",
+      "serverId": "documentServer1HttpsApiHappilyAiProd",
+      "authentication": [
+        {
+          "schemes": [
+            "ApiKeyAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "culture_contribution",
+            "inputName": "culture_contribution",
+            "sample": "value/id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "goals_feedback",
+            "inputName": "goals_feedback",
+            "sample": "value/id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "members",
+            "inputName": "members",
+            "sample": [
+              "user@example.test"
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "name",
+            "inputName": "name",
+            "sample": "value/id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "next_review",
+            "inputName": "next_review",
+            "sample": "value/id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "teams",
+            "inputName": "teams",
+            "sample": [
+              "value/id"
+            ],
+            "type": "array",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "data",
+            "type": "object"
+          },
+          {
+            "name": "message",
+            "type": "string"
+          },
+          {
+            "name": "statusCode",
+            "type": "integer"
+          }
+        ],
+        "simplifiedFields": [
+          "data",
+          "message",
+          "statusCode"
+        ]
+      },
+      "errors": [
+        {
+          "status": "403",
+          "title": "Authenticated, but not permitted to access this resource."
+        }
+      ],
+      "requestPlan": {
+        "operationId": "savePerformancePreset",
+        "method": "POST",
+        "path": "/api/v1/performance-preset",
+        "serverId": "documentServer1HttpsApiHappilyAiProd",
+        "request": {
+          "method": "POST",
+          "url": "=/api/v1/performance-preset",
+          "query": [],
+          "body": [
+            {
+              "name": "culture_contribution",
+              "source": "parameter"
+            },
+            {
+              "name": "goals_feedback",
+              "source": "parameter"
+            },
+            {
+              "name": "members",
+              "source": "additionalFields"
+            },
+            {
+              "name": "name",
+              "source": "parameter"
+            },
+            {
+              "name": "next_review",
+              "source": "parameter"
+            },
+            {
+              "name": "teams",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "ApiKeyAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "data",
+              "type": "object"
+            },
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "statusCode",
+              "type": "integer"
+            }
+          ],
+          "simplifiedFields": [
+            "data",
+            "message",
+            "statusCode"
+          ]
+        },
+        "errors": [
+          {
+            "status": "403",
+            "title": "Authenticated, but not permitted to access this resource."
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter members",
+          "advanced parameter teams"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "createRecognition",
+      "method": "POST",
+      "path": "/1/recognition/{member_email}",
+      "serverId": "documentServer1HttpsApiHappilyAiProd",
+      "authentication": [
+        {
+          "schemes": [
+            "ApiKeyAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "member_email",
+          "inputName": "member_email",
+          "sample": "sam@acme.com",
+          "example": "sam@acme.com",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "amount",
+            "inputName": "amount",
+            "sample": 5,
+            "example": 5,
+            "type": "number",
+            "required": true
+          },
+          {
+            "name": "display_feed",
+            "inputName": "display_feed",
+            "sample": false,
+            "default": false,
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "for",
+            "inputName": "for",
+            "sample": "Shipping the Q3 launch ahead of schedule 🚀",
+            "example": "Shipping the Q3 launch ahead of schedule 🚀",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "recipients",
+            "inputName": "recipients",
+            "sample": {
+              "schemaAlternative": "alternative1",
+              "value": "value/id"
+            },
+            "example": [
+              "jordan@acme.com",
+              "sam@acme.com"
+            ],
+            "type": "alternative",
+            "required": true
+          },
+          {
+            "name": "type",
+            "inputName": "type",
+            "sample": "coin",
+            "enum": [
+              "coin"
+            ],
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "amount",
+            "type": "number"
+          },
+          {
+            "name": "company",
+            "type": "string"
+          },
+          {
+            "name": "createdate",
+            "type": "string"
+          },
+          {
+            "name": "for",
+            "type": "string"
+          },
+          {
+            "name": "share",
+            "type": "boolean"
+          },
+          {
+            "name": "status",
+            "type": "boolean"
+          },
+          {
+            "name": "statusCode",
+            "type": "integer"
+          },
+          {
+            "name": "to",
+            "type": "array"
+          },
+          {
+            "name": "total",
+            "type": "number"
+          },
+          {
+            "name": "type",
+            "type": "string"
+          },
+          {
+            "name": "when",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "status",
+          "type",
+          "amount",
+          "company",
+          "createdate",
+          "for",
+          "share",
+          "statusCode",
+          "total",
+          "when"
+        ]
+      },
+      "errors": [
+        {
+          "status": "403",
+          "title": "Missing or invalid API key."
+        },
+        {
+          "status": "503",
+          "title": "A sender or recipient email was not found in your company."
+        }
+      ],
+      "requestPlan": {
+        "operationId": "createRecognition",
+        "method": "POST",
+        "path": "/1/recognition/{member_email}",
+        "serverId": "documentServer1HttpsApiHappilyAiProd",
+        "request": {
+          "method": "POST",
+          "url": "=/1/recognition/{{$parameter[\"member_email\"]}}",
+          "query": [],
+          "body": [
+            {
+              "name": "amount",
+              "source": "parameter"
+            },
+            {
+              "name": "display_feed",
+              "source": "additionalFields"
+            },
+            {
+              "name": "for",
+              "source": "parameter"
+            },
+            {
+              "name": "recipients",
+              "source": "parameter"
+            },
+            {
+              "name": "type",
+              "source": "parameter"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "ApiKeyAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "amount",
+              "type": "number"
+            },
+            {
+              "name": "company",
+              "type": "string"
+            },
+            {
+              "name": "createdate",
+              "type": "string"
+            },
+            {
+              "name": "for",
+              "type": "string"
+            },
+            {
+              "name": "share",
+              "type": "boolean"
+            },
+            {
+              "name": "status",
+              "type": "boolean"
+            },
+            {
+              "name": "statusCode",
+              "type": "integer"
+            },
+            {
+              "name": "to",
+              "type": "array"
+            },
+            {
+              "name": "total",
+              "type": "number"
+            },
+            {
+              "name": "type",
+              "type": "string"
+            },
+            {
+              "name": "when",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "status",
+            "type",
+            "amount",
+            "company",
+            "createdate",
+            "for",
+            "share",
+            "statusCode",
+            "total",
+            "when"
+          ]
+        },
+        "errors": [
+          {
+            "status": "403",
+            "title": "Missing or invalid API key."
+          },
+          {
+            "status": "503",
+            "title": "A sender or recipient email was not found in your company."
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter recipients"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "getMedalById",
+      "method": "GET",
+      "path": "/1/recognition/medal/{medal_id}",
+      "serverId": "documentServer1HttpsApiHappilyAiProd",
+      "authentication": [
+        {
+          "schemes": [
+            "ApiKeyAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "medal_id",
+          "inputName": "medal_id",
+          "sample": "Kindness",
+          "example": "Kindness",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "statusCode",
+            "type": "integer"
+          },
+          {
+            "name": "value",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "statusCode",
+          "value"
+        ]
+      },
+      "errors": [
+        {
+          "status": "403",
+          "title": "Missing or invalid API key."
+        }
+      ],
+      "requestPlan": {
+        "operationId": "getMedalById",
+        "method": "GET",
+        "path": "/1/recognition/medal/{medal_id}",
+        "serverId": "documentServer1HttpsApiHappilyAiProd",
+        "request": {
+          "method": "GET",
+          "url": "=/1/recognition/medal/{{$parameter[\"medal_id\"]}}",
+          "query": [],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "ApiKeyAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "statusCode",
+              "type": "integer"
+            },
+            {
+              "name": "value",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "statusCode",
+            "value"
+          ]
+        },
+        "errors": [
+          {
+            "status": "403",
+            "title": "Missing or invalid API key."
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "getRecognitions",
+      "method": "GET",
+      "path": "/1/recognition",
+      "serverId": "documentServer1HttpsApiHappilyAiProd",
+      "authentication": [
+        {
+          "schemes": [
+            "ApiKeyAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "email",
+          "inputName": "email",
+          "sample": "jordan@acme.com",
+          "example": "jordan@acme.com",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "team_name",
+          "inputName": "team_name",
+          "sample": "Design",
+          "example": "Design",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "page",
+          "inputName": "page",
+          "sample": 1,
+          "default": 1,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "limit",
+          "inputName": "limit",
+          "sample": 50,
+          "default": 50,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "message",
+            "type": "string"
+          },
+          {
+            "name": "pagination",
+            "type": "object"
+          },
+          {
+            "name": "recognitions",
+            "type": "array"
+          },
+          {
+            "name": "statusCode",
+            "type": "integer"
+          }
+        ],
+        "simplifiedFields": [
+          "message",
+          "pagination",
+          "recognitions",
+          "statusCode"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Missing or invalid request parameters."
+        }
+      ],
+      "requestPlan": {
+        "operationId": "getRecognitions",
+        "method": "GET",
+        "path": "/1/recognition",
+        "serverId": "documentServer1HttpsApiHappilyAiProd",
+        "request": {
+          "method": "GET",
+          "url": "=/1/recognition",
+          "query": [
+            {
+              "name": "email",
+              "source": "additionalFields"
+            },
+            {
+              "name": "team_name",
+              "source": "additionalFields"
+            },
+            {
+              "name": "page",
+              "source": "additionalFields"
+            },
+            {
+              "name": "limit",
+              "source": "additionalFields"
+            }
+          ],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "ApiKeyAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "pagination",
+              "type": "object"
+            },
+            {
+              "name": "recognitions",
+              "type": "array"
+            },
+            {
+              "name": "statusCode",
+              "type": "integer"
+            }
+          ],
+          "simplifiedFields": [
+            "message",
+            "pagination",
+            "recognitions",
+            "statusCode"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Missing or invalid request parameters."
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "getQuestions",
+      "method": "GET",
+      "path": "/1/questions",
+      "serverId": "documentServer1HttpsApiHappilyAiProd",
+      "authentication": [
+        {
+          "schemes": [
+            "ApiKeyAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "type",
+          "inputName": "type",
+          "sample": "value/id",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "skill",
+          "inputName": "skill",
+          "sample": "Critical Thinking",
+          "enum": [
+            "Critical Thinking",
+            "Empathy",
+            "Initiative Making",
+            "Leadership",
+            "Self Awareness",
+            "Optimism"
+          ],
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "dimension",
+          "inputName": "dimension",
+          "sample": "value/id",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "page",
+          "inputName": "page",
+          "sample": 1,
+          "default": 1,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "limit",
+          "inputName": "limit",
+          "sample": 50,
+          "default": 50,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "message",
+            "type": "string"
+          },
+          {
+            "name": "pagination",
+            "type": "object"
+          },
+          {
+            "name": "questions",
+            "type": "array"
+          },
+          {
+            "name": "statusCode",
+            "type": "integer"
+          }
+        ],
+        "simplifiedFields": [
+          "message",
+          "pagination",
+          "questions",
+          "statusCode"
+        ]
+      },
+      "errors": [
+        {
+          "status": "403",
+          "title": "Missing or invalid API key."
+        }
+      ],
+      "requestPlan": {
+        "operationId": "getQuestions",
+        "method": "GET",
+        "path": "/1/questions",
+        "serverId": "documentServer1HttpsApiHappilyAiProd",
+        "request": {
+          "method": "GET",
+          "url": "=/1/questions",
+          "query": [
+            {
+              "name": "type",
+              "source": "additionalFields"
+            },
+            {
+              "name": "skill",
+              "source": "additionalFields"
+            },
+            {
+              "name": "dimension",
+              "source": "additionalFields"
+            },
+            {
+              "name": "page",
+              "source": "additionalFields"
+            },
+            {
+              "name": "limit",
+              "source": "additionalFields"
+            }
+          ],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "ApiKeyAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "pagination",
+              "type": "object"
+            },
+            {
+              "name": "questions",
+              "type": "array"
+            },
+            {
+              "name": "statusCode",
+              "type": "integer"
+            }
+          ],
+          "simplifiedFields": [
+            "message",
+            "pagination",
+            "questions",
+            "statusCode"
+          ]
+        },
+        "errors": [
+          {
+            "status": "403",
+            "title": "Missing or invalid API key."
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "getResponses",
+      "method": "GET",
+      "path": "/1/responses",
+      "serverId": "documentServer1HttpsApiHappilyAiProd",
+      "authentication": [
+        {
+          "schemes": [
+            "ApiKeyAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "email",
+          "inputName": "email",
+          "sample": "user@example.test",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "question_id",
+          "inputName": "question_id",
+          "sample": "value/id",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "date_from",
+          "inputName": "date_from",
+          "sample": "2026-01-01",
+          "example": "2026-01-01",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "date_to",
+          "inputName": "date_to",
+          "sample": "2026-06-30",
+          "example": "2026-06-30",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "page",
+          "inputName": "page",
+          "sample": 1,
+          "default": 1,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "limit",
+          "inputName": "limit",
+          "sample": 50,
+          "default": 50,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "message",
+            "type": "string"
+          },
+          {
+            "name": "pagination",
+            "type": "object"
+          },
+          {
+            "name": "responses",
+            "type": "array"
+          },
+          {
+            "name": "statusCode",
+            "type": "integer"
+          }
+        ],
+        "simplifiedFields": [
+          "message",
+          "pagination",
+          "responses",
+          "statusCode"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "Missing or invalid request parameters."
+        }
+      ],
+      "requestPlan": {
+        "operationId": "getResponses",
+        "method": "GET",
+        "path": "/1/responses",
+        "serverId": "documentServer1HttpsApiHappilyAiProd",
+        "request": {
+          "method": "GET",
+          "url": "=/1/responses",
+          "query": [
+            {
+              "name": "email",
+              "source": "additionalFields"
+            },
+            {
+              "name": "question_id",
+              "source": "additionalFields"
+            },
+            {
+              "name": "date_from",
+              "source": "additionalFields"
+            },
+            {
+              "name": "date_to",
+              "source": "additionalFields"
+            },
+            {
+              "name": "page",
+              "source": "additionalFields"
+            },
+            {
+              "name": "limit",
+              "source": "additionalFields"
+            }
+          ],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "ApiKeyAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "pagination",
+              "type": "object"
+            },
+            {
+              "name": "responses",
+              "type": "array"
+            },
+            {
+              "name": "statusCode",
+              "type": "integer"
+            }
+          ],
+          "simplifiedFields": [
+            "message",
+            "pagination",
+            "responses",
+            "statusCode"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "Missing or invalid request parameters."
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "generateTownHallContent",
+      "method": "POST",
+      "path": "/townhall/content",
+      "serverId": "documentServer1HttpsApiHappilyAiProd",
+      "authentication": [
+        {
+          "schemes": [
+            "ApiKeyAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "message",
+            "type": "string"
+          },
+          {
+            "name": "statusCode",
+            "type": "integer"
+          }
+        ],
+        "simplifiedFields": [
+          "message",
+          "statusCode"
+        ]
+      },
+      "errors": [
+        {
+          "status": "403",
+          "title": "Company inactive or Town Hall not enabled."
+        }
+      ],
+      "requestPlan": {
+        "operationId": "generateTownHallContent",
+        "method": "POST",
+        "path": "/townhall/content",
+        "serverId": "documentServer1HttpsApiHappilyAiProd",
+        "request": {
+          "method": "POST",
+          "url": "=/townhall/content",
+          "query": [],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "ApiKeyAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "statusCode",
+              "type": "integer"
+            }
+          ],
+          "simplifiedFields": [
+            "message",
+            "statusCode"
+          ]
+        },
+        "errors": [
+          {
+            "status": "403",
+            "title": "Company inactive or Town Hall not enabled."
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    }
+  ],
+  "triggerFixtures": []
+}
